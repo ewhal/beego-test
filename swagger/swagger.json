@@ -1,0 +1,4901 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "beego Test API",
+        "description": "beego has a very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "astaxie@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/accounts/": {
+            "get": {
+                "tags": [
+                    "accounts"
+                ],
+                "description": "get Accounts",
+                "operationId": "AccountsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "accounts"
+                ],
+                "description": "create Accounts",
+                "operationId": "AccountsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Accounts content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Accounts"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/accounts/{id}": {
+            "get": {
+                "tags": [
+                    "accounts"
+                ],
+                "description": "get Accounts by id",
+                "operationId": "AccountsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "accounts"
+                ],
+                "description": "update the Accounts",
+                "operationId": "AccountsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Accounts content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Accounts"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "accounts"
+                ],
+                "description": "delete the Accounts",
+                "operationId": "AccountsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/activities/": {
+            "get": {
+                "tags": [
+                    "activities"
+                ],
+                "description": "get Activities",
+                "operationId": "ActivitiesController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Activities"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "activities"
+                ],
+                "description": "create Activities",
+                "operationId": "ActivitiesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Activities content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Activities"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Activities"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/activities/{id}": {
+            "get": {
+                "tags": [
+                    "activities"
+                ],
+                "description": "get Activities by id",
+                "operationId": "ActivitiesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Activities"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "activities"
+                ],
+                "description": "update the Activities",
+                "operationId": "ActivitiesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Activities content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Activities"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Activities"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "activities"
+                ],
+                "description": "delete the Activities",
+                "operationId": "ActivitiesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/comments/": {
+            "get": {
+                "tags": [
+                    "comments"
+                ],
+                "description": "get Comments",
+                "operationId": "CommentsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Comments"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "comments"
+                ],
+                "description": "create Comments",
+                "operationId": "CommentsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Comments content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Comments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Comments"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/comments/{id}": {
+            "get": {
+                "tags": [
+                    "comments"
+                ],
+                "description": "get Comments by id",
+                "operationId": "CommentsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Comments"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "comments"
+                ],
+                "description": "update the Comments",
+                "operationId": "CommentsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Comments content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Comments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Comments"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "comments"
+                ],
+                "description": "delete the Comments",
+                "operationId": "CommentsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/files/": {
+            "get": {
+                "tags": [
+                    "files"
+                ],
+                "description": "get Files",
+                "operationId": "FilesController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Files"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "files"
+                ],
+                "description": "create Files",
+                "operationId": "FilesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Files content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Files"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Files"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/files/{id}": {
+            "get": {
+                "tags": [
+                    "files"
+                ],
+                "description": "get Files by id",
+                "operationId": "FilesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Files"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "files"
+                ],
+                "description": "update the Files",
+                "operationId": "FilesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Files content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Files"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Files"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "files"
+                ],
+                "description": "delete the Files",
+                "operationId": "FilesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_client/": {
+            "get": {
+                "tags": [
+                    "hydra_client"
+                ],
+                "description": "get HydraClient",
+                "operationId": "HydraClientController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraClient"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "hydra_client"
+                ],
+                "description": "create HydraClient",
+                "operationId": "HydraClientController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraClient content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraClient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.HydraClient"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_client/{id}": {
+            "get": {
+                "tags": [
+                    "hydra_client"
+                ],
+                "description": "get HydraClient by id",
+                "operationId": "HydraClientController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraClient"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "hydra_client"
+                ],
+                "description": "update the HydraClient",
+                "operationId": "HydraClientController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraClient content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraClient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraClient"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "hydra_client"
+                ],
+                "description": "delete the HydraClient",
+                "operationId": "HydraClientController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_access/": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_access"
+                ],
+                "description": "get HydraOauth2Access",
+                "operationId": "HydraOauth2AccessController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Access"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "hydra_oauth2_access"
+                ],
+                "description": "create HydraOauth2Access",
+                "operationId": "HydraOauth2AccessController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Access content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Access"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.HydraOauth2Access"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_access/{id}": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_access"
+                ],
+                "description": "get HydraOauth2Access by id",
+                "operationId": "HydraOauth2AccessController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Access"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "hydra_oauth2_access"
+                ],
+                "description": "update the HydraOauth2Access",
+                "operationId": "HydraOauth2AccessController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Access content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Access"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Access"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "hydra_oauth2_access"
+                ],
+                "description": "delete the HydraOauth2Access",
+                "operationId": "HydraOauth2AccessController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_code/": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_code"
+                ],
+                "description": "get HydraOauth2Code",
+                "operationId": "HydraOauth2CodeController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Code"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "hydra_oauth2_code"
+                ],
+                "description": "create HydraOauth2Code",
+                "operationId": "HydraOauth2CodeController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Code content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Code"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.HydraOauth2Code"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_code/{id}": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_code"
+                ],
+                "description": "get HydraOauth2Code by id",
+                "operationId": "HydraOauth2CodeController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Code"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "hydra_oauth2_code"
+                ],
+                "description": "update the HydraOauth2Code",
+                "operationId": "HydraOauth2CodeController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Code content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Code"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Code"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "hydra_oauth2_code"
+                ],
+                "description": "delete the HydraOauth2Code",
+                "operationId": "HydraOauth2CodeController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_oidc/": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_oidc"
+                ],
+                "description": "get HydraOauth2Oidc",
+                "operationId": "HydraOauth2OidcController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Oidc"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "hydra_oauth2_oidc"
+                ],
+                "description": "create HydraOauth2Oidc",
+                "operationId": "HydraOauth2OidcController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Oidc content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Oidc"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.HydraOauth2Oidc"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_oidc/{id}": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_oidc"
+                ],
+                "description": "get HydraOauth2Oidc by id",
+                "operationId": "HydraOauth2OidcController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Oidc"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "hydra_oauth2_oidc"
+                ],
+                "description": "update the HydraOauth2Oidc",
+                "operationId": "HydraOauth2OidcController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Oidc content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Oidc"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Oidc"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "hydra_oauth2_oidc"
+                ],
+                "description": "delete the HydraOauth2Oidc",
+                "operationId": "HydraOauth2OidcController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_refresh/": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_refresh"
+                ],
+                "description": "get HydraOauth2Refresh",
+                "operationId": "HydraOauth2RefreshController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Refresh"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "hydra_oauth2_refresh"
+                ],
+                "description": "create HydraOauth2Refresh",
+                "operationId": "HydraOauth2RefreshController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Refresh content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Refresh"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.HydraOauth2Refresh"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/hydra_oauth2_refresh/{id}": {
+            "get": {
+                "tags": [
+                    "hydra_oauth2_refresh"
+                ],
+                "description": "get HydraOauth2Refresh by id",
+                "operationId": "HydraOauth2RefreshController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Refresh"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "hydra_oauth2_refresh"
+                ],
+                "description": "update the HydraOauth2Refresh",
+                "operationId": "HydraOauth2RefreshController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for HydraOauth2Refresh content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Refresh"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.HydraOauth2Refresh"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "hydra_oauth2_refresh"
+                ],
+                "description": "delete the HydraOauth2Refresh",
+                "operationId": "HydraOauth2RefreshController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/notifications/": {
+            "get": {
+                "tags": [
+                    "notifications"
+                ],
+                "description": "get Notifications",
+                "operationId": "NotificationsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Notifications"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "notifications"
+                ],
+                "description": "create Notifications",
+                "operationId": "NotificationsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Notifications content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Notifications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Notifications"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/notifications/{id}": {
+            "get": {
+                "tags": [
+                    "notifications"
+                ],
+                "description": "get Notifications by id",
+                "operationId": "NotificationsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Notifications"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "notifications"
+                ],
+                "description": "update the Notifications",
+                "operationId": "NotificationsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Notifications content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Notifications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Notifications"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "notifications"
+                ],
+                "description": "delete the Notifications",
+                "operationId": "NotificationsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/scrape/": {
+            "get": {
+                "tags": [
+                    "scrape"
+                ],
+                "description": "get Scrape",
+                "operationId": "ScrapeController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Scrape"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "scrape"
+                ],
+                "description": "create Scrape",
+                "operationId": "ScrapeController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Scrape content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Scrape"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Scrape"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/scrape/{id}": {
+            "get": {
+                "tags": [
+                    "scrape"
+                ],
+                "description": "get Scrape by id",
+                "operationId": "ScrapeController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Scrape"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "scrape"
+                ],
+                "description": "update the Scrape",
+                "operationId": "ScrapeController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Scrape content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Scrape"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Scrape"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "scrape"
+                ],
+                "description": "delete the Scrape",
+                "operationId": "ScrapeController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_activities/": {
+            "get": {
+                "tags": [
+                    "sukebei_activities"
+                ],
+                "description": "get SukebeiActivities",
+                "operationId": "SukebeiActivitiesController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiActivities"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sukebei_activities"
+                ],
+                "description": "create SukebeiActivities",
+                "operationId": "SukebeiActivitiesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiActivities content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiActivities"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SukebeiActivities"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_activities/{id}": {
+            "get": {
+                "tags": [
+                    "sukebei_activities"
+                ],
+                "description": "get SukebeiActivities by id",
+                "operationId": "SukebeiActivitiesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiActivities"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sukebei_activities"
+                ],
+                "description": "update the SukebeiActivities",
+                "operationId": "SukebeiActivitiesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiActivities content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiActivities"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiActivities"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sukebei_activities"
+                ],
+                "description": "delete the SukebeiActivities",
+                "operationId": "SukebeiActivitiesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_comments/": {
+            "get": {
+                "tags": [
+                    "sukebei_comments"
+                ],
+                "description": "get SukebeiComments",
+                "operationId": "SukebeiCommentsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiComments"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sukebei_comments"
+                ],
+                "description": "create SukebeiComments",
+                "operationId": "SukebeiCommentsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiComments content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiComments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SukebeiComments"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_comments/{id}": {
+            "get": {
+                "tags": [
+                    "sukebei_comments"
+                ],
+                "description": "get SukebeiComments by id",
+                "operationId": "SukebeiCommentsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiComments"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sukebei_comments"
+                ],
+                "description": "update the SukebeiComments",
+                "operationId": "SukebeiCommentsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiComments content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiComments"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiComments"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sukebei_comments"
+                ],
+                "description": "delete the SukebeiComments",
+                "operationId": "SukebeiCommentsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_files/": {
+            "get": {
+                "tags": [
+                    "sukebei_files"
+                ],
+                "description": "get SukebeiFiles",
+                "operationId": "SukebeiFilesController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiFiles"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sukebei_files"
+                ],
+                "description": "create SukebeiFiles",
+                "operationId": "SukebeiFilesController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiFiles content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiFiles"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SukebeiFiles"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_files/{id}": {
+            "get": {
+                "tags": [
+                    "sukebei_files"
+                ],
+                "description": "get SukebeiFiles by id",
+                "operationId": "SukebeiFilesController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiFiles"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sukebei_files"
+                ],
+                "description": "update the SukebeiFiles",
+                "operationId": "SukebeiFilesController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiFiles content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiFiles"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiFiles"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sukebei_files"
+                ],
+                "description": "delete the SukebeiFiles",
+                "operationId": "SukebeiFilesController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_notifications/": {
+            "get": {
+                "tags": [
+                    "sukebei_notifications"
+                ],
+                "description": "get SukebeiNotifications",
+                "operationId": "SukebeiNotificationsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiNotifications"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sukebei_notifications"
+                ],
+                "description": "create SukebeiNotifications",
+                "operationId": "SukebeiNotificationsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiNotifications content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiNotifications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SukebeiNotifications"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_notifications/{id}": {
+            "get": {
+                "tags": [
+                    "sukebei_notifications"
+                ],
+                "description": "get SukebeiNotifications by id",
+                "operationId": "SukebeiNotificationsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiNotifications"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sukebei_notifications"
+                ],
+                "description": "update the SukebeiNotifications",
+                "operationId": "SukebeiNotificationsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiNotifications content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiNotifications"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiNotifications"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sukebei_notifications"
+                ],
+                "description": "delete the SukebeiNotifications",
+                "operationId": "SukebeiNotificationsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_scrape/": {
+            "get": {
+                "tags": [
+                    "sukebei_scrape"
+                ],
+                "description": "get SukebeiScrape",
+                "operationId": "SukebeiScrapeController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiScrape"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sukebei_scrape"
+                ],
+                "description": "create SukebeiScrape",
+                "operationId": "SukebeiScrapeController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiScrape content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiScrape"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SukebeiScrape"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_scrape/{id}": {
+            "get": {
+                "tags": [
+                    "sukebei_scrape"
+                ],
+                "description": "get SukebeiScrape by id",
+                "operationId": "SukebeiScrapeController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiScrape"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sukebei_scrape"
+                ],
+                "description": "update the SukebeiScrape",
+                "operationId": "SukebeiScrapeController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiScrape content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiScrape"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiScrape"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sukebei_scrape"
+                ],
+                "description": "delete the SukebeiScrape",
+                "operationId": "SukebeiScrapeController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_torrent_reports/": {
+            "get": {
+                "tags": [
+                    "sukebei_torrent_reports"
+                ],
+                "description": "get SukebeiTorrentReports",
+                "operationId": "SukebeiTorrentReportsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrentReports"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sukebei_torrent_reports"
+                ],
+                "description": "create SukebeiTorrentReports",
+                "operationId": "SukebeiTorrentReportsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiTorrentReports content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrentReports"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SukebeiTorrentReports"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_torrent_reports/{id}": {
+            "get": {
+                "tags": [
+                    "sukebei_torrent_reports"
+                ],
+                "description": "get SukebeiTorrentReports by id",
+                "operationId": "SukebeiTorrentReportsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrentReports"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sukebei_torrent_reports"
+                ],
+                "description": "update the SukebeiTorrentReports",
+                "operationId": "SukebeiTorrentReportsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiTorrentReports content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrentReports"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrentReports"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sukebei_torrent_reports"
+                ],
+                "description": "delete the SukebeiTorrentReports",
+                "operationId": "SukebeiTorrentReportsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_torrents/": {
+            "get": {
+                "tags": [
+                    "sukebei_torrents"
+                ],
+                "description": "get SukebeiTorrents",
+                "operationId": "SukebeiTorrentsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrents"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sukebei_torrents"
+                ],
+                "description": "create SukebeiTorrents",
+                "operationId": "SukebeiTorrentsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiTorrents content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrents"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.SukebeiTorrents"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/sukebei_torrents/{id}": {
+            "get": {
+                "tags": [
+                    "sukebei_torrents"
+                ],
+                "description": "get SukebeiTorrents by id",
+                "operationId": "SukebeiTorrentsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrents"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sukebei_torrents"
+                ],
+                "description": "update the SukebeiTorrents",
+                "operationId": "SukebeiTorrentsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for SukebeiTorrents content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrents"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.SukebeiTorrents"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sukebei_torrents"
+                ],
+                "description": "delete the SukebeiTorrents",
+                "operationId": "SukebeiTorrentsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/torrent_reports/": {
+            "get": {
+                "tags": [
+                    "torrent_reports"
+                ],
+                "description": "get TorrentReports",
+                "operationId": "TorrentReportsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TorrentReports"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "torrent_reports"
+                ],
+                "description": "create TorrentReports",
+                "operationId": "TorrentReportsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TorrentReports content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TorrentReports"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TorrentReports"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/torrent_reports/{id}": {
+            "get": {
+                "tags": [
+                    "torrent_reports"
+                ],
+                "description": "get TorrentReports by id",
+                "operationId": "TorrentReportsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TorrentReports"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "torrent_reports"
+                ],
+                "description": "update the TorrentReports",
+                "operationId": "TorrentReportsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for TorrentReports content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.TorrentReports"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.TorrentReports"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "torrent_reports"
+                ],
+                "description": "delete the TorrentReports",
+                "operationId": "TorrentReportsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/torrents/": {
+            "get": {
+                "tags": [
+                    "torrents"
+                ],
+                "description": "get Torrents",
+                "operationId": "TorrentsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Torrents"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "torrents"
+                ],
+                "description": "create Torrents",
+                "operationId": "TorrentsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Torrents content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Torrents"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Torrents"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/torrents/{id}": {
+            "get": {
+                "tags": [
+                    "torrents"
+                ],
+                "description": "get Torrents by id",
+                "operationId": "TorrentsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Torrents"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "torrents"
+                ],
+                "description": "update the Torrents",
+                "operationId": "TorrentsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Torrents content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Torrents"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Torrents"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "torrents"
+                ],
+                "description": "delete the Torrents",
+                "operationId": "TorrentsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/user_follows/": {
+            "get": {
+                "tags": [
+                    "user_follows"
+                ],
+                "description": "get UserFollows",
+                "operationId": "UserFollowsController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserFollows"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "user_follows"
+                ],
+                "description": "create UserFollows",
+                "operationId": "UserFollowsController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UserFollows content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UserFollows"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.UserFollows"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/user_follows/{id}": {
+            "get": {
+                "tags": [
+                    "user_follows"
+                ],
+                "description": "get UserFollows by id",
+                "operationId": "UserFollowsController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserFollows"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user_follows"
+                ],
+                "description": "update the UserFollows",
+                "operationId": "UserFollowsController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UserFollows content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UserFollows"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserFollows"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "user_follows"
+                ],
+                "description": "delete the UserFollows",
+                "operationId": "UserFollowsController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/user_uploads_old/": {
+            "get": {
+                "tags": [
+                    "user_uploads_old"
+                ],
+                "description": "get UserUploadsOld",
+                "operationId": "UserUploadsOldController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserUploadsOld"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "user_uploads_old"
+                ],
+                "description": "create UserUploadsOld",
+                "operationId": "UserUploadsOldController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UserUploadsOld content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UserUploadsOld"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.UserUploadsOld"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/user_uploads_old/{id}": {
+            "get": {
+                "tags": [
+                    "user_uploads_old"
+                ],
+                "description": "get UserUploadsOld by id",
+                "operationId": "UserUploadsOldController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserUploadsOld"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "user_uploads_old"
+                ],
+                "description": "update the UserUploadsOld",
+                "operationId": "UserUploadsOldController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for UserUploadsOld content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.UserUploadsOld"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserUploadsOld"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "user_uploads_old"
+                ],
+                "description": "delete the UserUploadsOld",
+                "operationId": "UserUploadsOldController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        },
+        "/users/": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "description": "get Users",
+                "operationId": "UsersController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Users"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "users"
+                ],
+                "description": "create Users",
+                "operationId": "UsersController.Post",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Users content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Users"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.Users"
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "description": "get Users by id",
+                "operationId": "UsersController.Get One",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Users"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "users"
+                ],
+                "description": "update the Users",
+                "operationId": "UsersController.Put",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to update",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for Users content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Users"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Users"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is not int"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "users"
+                ],
+                "description": "delete the Users",
+                "operationId": "UsersController.Delete",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id you want to delete",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} delete success!"
+                    },
+                    "403": {
+                        "description": "id is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Accounts": {
+            "title": "Accounts",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Password": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Activities": {
+            "title": "Activities",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "Filter": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Identifier": {
+                    "type": "string"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Comments": {
+            "title": "Comments",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "TorrentId": {
+                    "$ref": "#/definitions/models.Torrents"
+                },
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "UserId": {
+                    "$ref": "#/definitions/models.Users"
+                }
+            }
+        },
+        "models.Files": {
+            "title": "Files",
+            "type": "object",
+            "properties": {
+                "Filesize": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Path": {
+                    "type": "string"
+                },
+                "TorrentId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.HydraClient": {
+            "title": "HydraClient",
+            "type": "object",
+            "properties": {
+                "ClientName": {
+                    "type": "string"
+                },
+                "ClientSecret": {
+                    "type": "string"
+                },
+                "ClientUri": {
+                    "type": "string"
+                },
+                "Contacts": {
+                    "type": "string"
+                },
+                "GrantTypes": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LogoUri": {
+                    "type": "string"
+                },
+                "Owner": {
+                    "type": "string"
+                },
+                "PolicyUri": {
+                    "type": "string"
+                },
+                "Public": {
+                    "type": "boolean"
+                },
+                "RedirectUris": {
+                    "type": "string"
+                },
+                "ResponseTypes": {
+                    "type": "string"
+                },
+                "Scope": {
+                    "type": "string"
+                },
+                "TosUri": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.HydraOauth2Access": {
+            "title": "HydraOauth2Access",
+            "type": "object",
+            "properties": {
+                "ClientId": {
+                    "type": "string"
+                },
+                "FormData": {
+                    "type": "string"
+                },
+                "GrantedScope": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RequestId": {
+                    "type": "string"
+                },
+                "RequestedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Scope": {
+                    "type": "string"
+                },
+                "SessionData": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.HydraOauth2Code": {
+            "title": "HydraOauth2Code",
+            "type": "object",
+            "properties": {
+                "ClientId": {
+                    "type": "string"
+                },
+                "FormData": {
+                    "type": "string"
+                },
+                "GrantedScope": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RequestId": {
+                    "type": "string"
+                },
+                "RequestedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Scope": {
+                    "type": "string"
+                },
+                "SessionData": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.HydraOauth2Oidc": {
+            "title": "HydraOauth2Oidc",
+            "type": "object",
+            "properties": {
+                "ClientId": {
+                    "type": "string"
+                },
+                "FormData": {
+                    "type": "string"
+                },
+                "GrantedScope": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RequestId": {
+                    "type": "string"
+                },
+                "RequestedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Scope": {
+                    "type": "string"
+                },
+                "SessionData": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.HydraOauth2Refresh": {
+            "title": "HydraOauth2Refresh",
+            "type": "object",
+            "properties": {
+                "ClientId": {
+                    "type": "string"
+                },
+                "FormData": {
+                    "type": "string"
+                },
+                "GrantedScope": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "RequestId": {
+                    "type": "string"
+                },
+                "RequestedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Scope": {
+                    "type": "string"
+                },
+                "SessionData": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Notifications": {
+            "title": "Notifications",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "Date": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Expire": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Identifier": {
+                    "type": "string"
+                },
+                "Read": {
+                    "type": "boolean"
+                },
+                "Url": {
+                    "type": "string"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Scrape": {
+            "title": "Scrape",
+            "type": "object",
+            "properties": {
+                "Completed": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LastScrape": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Leechers": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Seeders": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SukebeiActivities": {
+            "title": "SukebeiActivities",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "Filter": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Identifier": {
+                    "type": "string"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SukebeiComments": {
+            "title": "SukebeiComments",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "TorrentId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SukebeiFiles": {
+            "title": "SukebeiFiles",
+            "type": "object",
+            "properties": {
+                "Filesize": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Path": {
+                    "type": "string"
+                },
+                "TorrentId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SukebeiNotifications": {
+            "title": "SukebeiNotifications",
+            "type": "object",
+            "properties": {
+                "Content": {
+                    "type": "string"
+                },
+                "Date": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Expire": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Identifier": {
+                    "type": "string"
+                },
+                "Read": {
+                    "type": "boolean"
+                },
+                "Url": {
+                    "type": "string"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SukebeiScrape": {
+            "title": "SukebeiScrape",
+            "type": "object",
+            "properties": {
+                "Completed": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "LastScrape": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Leechers": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Seeders": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SukebeiTorrentReports": {
+            "title": "SukebeiTorrentReports",
+            "type": "object",
+            "properties": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Message": {
+                    "type": "string"
+                },
+                "TorrentId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.SukebeiTorrents": {
+            "title": "SukebeiTorrents",
+            "type": "object",
+            "properties": {
+                "AnidbId": {
+                    "type": "string"
+                },
+                "Anidbid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Category": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Date": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Dlsite": {
+                    "type": "string"
+                },
+                "Downloads": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Filesize": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Hidden": {
+                    "type": "boolean"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Language": {
+                    "type": "string"
+                },
+                "Stardom": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "SubCategory": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Tags": {
+                    "type": "string"
+                },
+                "TorrentHash": {
+                    "type": "string"
+                },
+                "TorrentName": {
+                    "type": "string"
+                },
+                "Trackers": {
+                    "type": "string"
+                },
+                "Uploader": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Vgmdbid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Videoquality": {
+                    "type": "string"
+                },
+                "Vndbid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "WebsiteLink": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.TorrentReports": {
+            "title": "TorrentReports",
+            "type": "object",
+            "properties": {
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Message": {
+                    "type": "string"
+                },
+                "TorrentId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "UserId": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Torrents": {
+            "title": "Torrents",
+            "type": "object",
+            "properties": {
+                "AnidbId": {
+                    "type": "string"
+                },
+                "Anidbid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Category": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Date": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "DbId": {
+                    "type": "string"
+                },
+                "DeletedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Description": {
+                    "type": "string"
+                },
+                "Dlsite": {
+                    "type": "string"
+                },
+                "Downloads": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Filesize": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Hidden": {
+                    "type": "boolean"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Language": {
+                    "type": "string"
+                },
+                "Stardom": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "SubCategory": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Tags": {
+                    "type": "string"
+                },
+                "TorrentHash": {
+                    "type": "string"
+                },
+                "TorrentName": {
+                    "type": "string"
+                },
+                "Trackers": {
+                    "type": "string"
+                },
+                "Uploader": {
+                    "$ref": "#/definitions/models.Users"
+                },
+                "Vgmdbid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Videoquality": {
+                    "type": "string"
+                },
+                "Vndbid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "WebsiteLink": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UserFollows": {
+            "title": "UserFollows",
+            "type": "object",
+            "properties": {
+                "Following": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.UserUploadsOld": {
+            "title": "UserUploadsOld",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Username": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Users": {
+            "title": "Users",
+            "type": "object",
+            "properties": {
+                "AltColors": {
+                    "type": "string"
+                },
+                "AnidexApiToken": {
+                    "type": "string"
+                },
+                "ApiToken": {
+                    "type": "string"
+                },
+                "ApiTokenExpiry": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "CreatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "HideAds": {
+                    "type": "string"
+                },
+                "Id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Language": {
+                    "type": "string"
+                },
+                "Mascot": {
+                    "type": "string"
+                },
+                "MascotUrl": {
+                    "type": "string"
+                },
+                "Md5": {
+                    "type": "string"
+                },
+                "NyaasiApiToken": {
+                    "type": "string"
+                },
+                "OldNav": {
+                    "type": "string"
+                },
+                "Pantsu": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "Settings": {
+                    "type": "string"
+                },
+                "Status": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Theme": {
+                    "type": "string"
+                },
+                "TokyotoshoApiToken": {
+                    "type": "string"
+                },
+                "UpdatedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "Username": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "comments",
+            "description": "CommentsController operations for Comments\n"
+        },
+        {
+            "name": "user_follows",
+            "description": "UserFollowsController operations for UserFollows\n"
+        },
+        {
+            "name": "users",
+            "description": "UsersController operations for Users\n"
+        },
+        {
+            "name": "user_uploads_old",
+            "description": "UserUploadsOldController operations for UserUploadsOld\n"
+        },
+        {
+            "name": "hydra_oauth2_access",
+            "description": "HydraOauth2AccessController operations for HydraOauth2Access\n"
+        },
+        {
+            "name": "sukebei_comments",
+            "description": "SukebeiCommentsController operations for SukebeiComments\n"
+        },
+        {
+            "name": "sukebei_files",
+            "description": "SukebeiFilesController operations for SukebeiFiles\n"
+        },
+        {
+            "name": "sukebei_notifications",
+            "description": "SukebeiNotificationsController operations for SukebeiNotifications\n"
+        },
+        {
+            "name": "hydra_oauth2_code",
+            "description": "HydraOauth2CodeController operations for HydraOauth2Code\n"
+        },
+        {
+            "name": "hydra_oauth2_oidc",
+            "description": "HydraOauth2OidcController operations for HydraOauth2Oidc\n"
+        },
+        {
+            "name": "hydra_oauth2_refresh",
+            "description": "HydraOauth2RefreshController operations for HydraOauth2Refresh\n"
+        },
+        {
+            "name": "accounts",
+            "description": "AccountsController operations for Accounts\n"
+        },
+        {
+            "name": "files",
+            "description": "FilesController operations for Files\n"
+        },
+        {
+            "name": "notifications",
+            "description": "NotificationsController operations for Notifications\n"
+        },
+        {
+            "name": "scrape",
+            "description": "ScrapeController operations for Scrape\n"
+        },
+        {
+            "name": "sukebei_activities",
+            "description": "SukebeiActivitiesController operations for SukebeiActivities\n"
+        },
+        {
+            "name": "sukebei_scrape",
+            "description": "SukebeiScrapeController operations for SukebeiScrape\n"
+        },
+        {
+            "name": "activities",
+            "description": "ActivitiesController operations for Activities\n"
+        },
+        {
+            "name": "sukebei_torrent_reports",
+            "description": "SukebeiTorrentReportsController operations for SukebeiTorrentReports\n"
+        },
+        {
+            "name": "hydra_client",
+            "description": "HydraClientController operations for HydraClient\n"
+        },
+        {
+            "name": "torrent_reports",
+            "description": "TorrentReportsController operations for TorrentReports\n"
+        },
+        {
+            "name": "torrents",
+            "description": "TorrentsController operations for Torrents\n"
+        },
+        {
+            "name": "sukebei_torrents",
+            "description": "SukebeiTorrentsController operations for SukebeiTorrents\n"
+        }
+    ]
+}
